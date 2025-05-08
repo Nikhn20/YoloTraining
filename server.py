@@ -13,11 +13,12 @@ from PIL import Image
 
 from FindPeople import find_people_in_image
 # from ClothesFinder import find_clothes
-from YOLO100ClothesFinder import find_clothes
+#from YOLO100ClothesFinder import find_clothes
 #from CropPerson import crop_largest_person
 #from Test import process_image
 from FindHairType import predict_hair_type
 from ClothingColor import ClothingColorAnalyzer
+from NewYOLO100ClothingFinder import detect_fashion_items
 
 HOST = '127.0.0.1'  # Localhost
 PORT = 65432  # Arbitrary port
@@ -123,8 +124,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                         hair_result = predict_hair_type(img, confidence_level=0.4)
                         print(f"Here is: {hair_result}")
 
-                        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-                        clothesList = find_clothes(img)
+
+
+                        clothesList = detect_fashion_items(img)
+
+                        cv2.imwrite('new_image3.jpg', img)
+                        for clothes in clothesList:
+                            print(clothes)
                         # Convert to JSON-serializable format
                         # Process person cropping
                         # Create combined JSON data
@@ -145,7 +151,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
                         #croppedPerson = crop_largest_person(img)
                         #print("Person cropped")
-                        img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+
                         analyzer = ClothingColorAnalyzer()
                         color_results = analyzer.analyze_clothing_colors(img)
                         for item in color_results:

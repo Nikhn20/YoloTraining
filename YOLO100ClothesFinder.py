@@ -17,8 +17,8 @@ def find_clothes(img, confidence_threshold=0.2, excluded_labels=None):
     img_np = np.array(img)
 
     # Run inference
-    #results = model(img_np)[0]
-    results = model.predict(img_np, conf=confidence_threshold, verbose=False)[0]
+    results = model(img_np)[0]
+
 
     # Default excluded labels
     if excluded_labels is None:
