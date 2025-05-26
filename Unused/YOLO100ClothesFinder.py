@@ -3,7 +3,7 @@ from PIL import Image
 import numpy as np
 
 # Load the model
-model = YOLO("C:/Users/mnj-7/PycharmProjects/YoloTraining/YOLO12LFashionpedia100Epochs.pt")  # Your custom weights
+model = YOLO("/YOLO12LFashionpedia100Epochs.pt")  # Your custom weights
 
 def find_clothes(img, confidence_threshold=0.2, excluded_labels=None):
     """

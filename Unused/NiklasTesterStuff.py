@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 import numpy as np
 
-model = YOLO("YOLO12LFashionpedia100Epochs.pt")
+model = YOLO("../YOLO12LFashionpedia100Epochs.pt")
 
 img_rgb = cv2.imread("FolderTilTestData/person_0.jpg")
 img_bgr = cv2.imread("FolderTilTestData/person_0.jpg")

@@ -9,13 +9,7 @@ import time
 import os
 import shutil
 
-from PIL import Image
-
 from FindPeople import find_people_in_image
-# from ClothesFinder import find_clothes
-#from YOLO100ClothesFinder import find_clothes
-#from CropPerson import crop_largest_person
-#from Test import process_image
 from FindHairType import predict_hair_type
 from ClothingColor import ClothingColorAnalyzer
 from NewYOLO100ClothingFinder import detect_fashion_items

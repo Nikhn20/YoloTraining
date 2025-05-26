@@ -13,7 +13,7 @@ model = YolosForObjectDetection.from_pretrained("valentinafeve/yolos-fashionpedi
 model.eval()
 
 # 2. Paths
-val_images_dir = r'C:\Users\mnj-7\PycharmProjects\YoloTraining\val_test2020\test'
+val_images_dir = r'/val_test2020/test'
 val_annotations = r'C:\Users\mnj-7\PycharmProjects\YoloTraining\val_test2020\instances_attributes_val2020.json'
 
 # 3. Load Fashionpedia validation annotations
